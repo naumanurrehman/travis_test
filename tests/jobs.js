@@ -9,7 +9,7 @@ const submitButton = Selector('button[type="submit"]');
 const clayDryerJob = Selector('tbody > tr').withText('Clay Dryer');
 
 fixture('Node Jobs')
-  .page('http://localhost:3000');
+  .page('http://localhost:3100');
 
 test('All Jobs', async (t) => {
   // check title, add job button, table rows, and job exists
