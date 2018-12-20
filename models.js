@@ -22,6 +22,14 @@ const jobs = [
     company: 'Clay Fun',
     email: 'edward@clayfun.com',
     contacted: true
+  },
+  {
+    id: 4,
+    title: 'Nomi Don',
+    description: 'Doing programming all day every day',
+    company: 'Freelancing',
+    email: 'nomi@don.com',
+    contacted: true
   }
 ];
 
