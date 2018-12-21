@@ -14,7 +14,37 @@ addons:
     packages:
      - google-chrome-stable
 
+cache:
+  directories:
+    - node_modules
+
 before_script:
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
   - sleep 3
+
+deploy:
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+    local_dir: dpl_cd_upload
+    skip_cleanup: true
+    on: &2
+      repo: naumanurrehman/travis_test
+    bucket: travis-code
+    region: us-east-1
+  - provider: codedeploy
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: travis-code
+    key: latest.zip
+    bundle_type: zip
+    application: travisci
+    deployment_group: travisDeployGroup
+    region: us-east-1
+    on: *2
+
+script:
+  - zip -r latest *
+  - mkdir -p dpl_cd_upload
+  - mv latest.zip dpl_cd_upload/latest.zip
