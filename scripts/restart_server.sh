@@ -1,2 +1,2 @@
 #!/bin/bash
-pm2 --name app start npm -- start
+pm2 restart app
