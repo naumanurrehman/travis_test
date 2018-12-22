@@ -14,14 +14,6 @@ const jobs = [
     company: 'Node Fun',
     email: 'eddie@nodefun.com',
     contacted: false
-  },
-  {
-    id: 3,
-    title: 'Clay Dryer',
-    description: 'Drying clay all day every day',
-    company: 'Clay Fun',
-    email: 'nomipomi@clayfun.com',
-    contacted: true
   }
 ];
 
